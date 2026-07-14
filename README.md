@@ -10,18 +10,16 @@ One run sweeps several independent angles:
 - **Hacker News** — "Show HN" launches as a traction signal independent of stars.
 - **Hugging Face trending** (optional) — notable open-weight model releases.
 
-The output is a single HTML file (`scans/<date>-whats-new.html`, rendered from `templates/proposal.html`, all CSS inline) with a TL;DR, **Fast movers** (with numbers — stars, stars/day, deltas), **Interesting finds** (why each matters), a one-liner **Radar**, and a methods footer. Every claim of "fast-growing" gets a number; every project gets a link.
+The output is a single HTML file (`scans/<date>-whats-new.html` — no imposed template or styling) with a TL;DR, **Fast movers** (with numbers — stars, stars/day, deltas), **Interesting finds** (why each matters), a one-liner **Radar**, and a methods footer. Every claim of "fast-growing" gets a number; every project gets a link.
 
 ## Install
 
 Copy the skill into a project's `.claude/skills/` directory:
 
 ```bash
-mkdir -p .claude/skills/scan-whats-new .claude/templates
+mkdir -p .claude/skills/scan-whats-new
 curl -fsSL https://raw.githubusercontent.com/sandy-pj/scan-whats-new/main/SKILL.md \
   -o .claude/skills/scan-whats-new/SKILL.md
-curl -fsSL https://raw.githubusercontent.com/sandy-pj/scan-whats-new/main/templates/proposal.html \
-  -o .claude/templates/proposal.html
 ```
 
 Then in Claude Code, run:
@@ -40,10 +38,7 @@ The skill was extracted from a discovery-loop workspace and reads/writes a few c
 |---|---|
 | `scans/<date>-whats-new.html` | the deliverable report |
 | `projects/scans/seen-projects.json` | star snapshots for dedup + growth deltas |
-| `.claude/templates/proposal.html` | HTML template (blog style, inline CSS) |
 | `goal.md`, `projects/active/`, `log.md` | optional workspace context / run log — harmless to omit |
-
-The report styling (Georgia serif, orange accent) lives entirely in `templates/proposal.html`; restyle that one file to change the look of every report.
 
 ## License
 

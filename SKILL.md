@@ -1,6 +1,6 @@
 ---
 name: scan-whats-new
-description: On-demand scan of the open-source AI landscape. Sweeps GitHub (trending + search API), Hacker News, and Hugging Face for notable open-source AI projects — both *interesting* (novel capability, new category, strong idea) and *fast-growing* (star velocity, sudden traction) — dedupes against previous scans, and delivers a self-contained HTML report in the PacePark blog style at scans/<date>-whats-new.html. Trigger when the user says "scan what's new", "/scan-whats-new", "what's new in open-source AI", "scan for trending AI projects", or "run the what's-new scan".
+description: On-demand scan of the open-source AI landscape. Sweeps GitHub (trending + search API), Hacker News, and Hugging Face for notable open-source AI projects — both *interesting* (novel capability, new category, strong idea) and *fast-growing* (star velocity, sudden traction) — dedupes against previous scans, and delivers an HTML report at scans/<date>-whats-new.html. Trigger when the user says "scan what's new", "/scan-whats-new", "what's new in open-source AI", "scan for trending AI projects", or "run the what's-new scan".
 ---
 
 # Scan-whats-new — one on-demand sweep
@@ -61,11 +61,9 @@ the calls or use `gh api`. Keep the whole sweep to a reasonable budget
   fine — a project can headline both). Quality over volume.
 
 ## 4. Render the HTML report
-Write a **self-contained HTML** report at `scans/<YYYY-MM-DD>-whats-new.html`
-— NOT markdown. Render it from `.claude/templates/proposal.html`: copy the
-template, fill `{{TITLE}}` (e.g. "What's New in Open-Source AI — <Month D>"),
-`{{DATE}}`, `{{BODY}}`, keep all CSS inline, and set the topbar `kicker` to
-`Scan · What's New`. Structure the body as:
+Write the report as an HTML file at `scans/<YYYY-MM-DD>-whats-new.html` —
+NOT markdown. No template or styling requirements: format it however you see
+fit, as a plain HTML document. Structure the content as:
 
 - **TL;DR** — 3–5 sentences: the headline projects and any theme of the week
   (e.g. "agent memory is having a moment").
@@ -78,7 +76,7 @@ template, fill `{{TITLE}}` (e.g. "What's New in Open-Source AI — <Month D>"),
   italic line: *Angle:* how it could matter for the business hunt or an active
   project. Omit the line rather than stretch.
 - **Radar** — `<ul>` of one-liners: worth knowing, not worth a section.
-- **Method** — one closing `<p class="sources">`: sources swept, date window,
+- **Method** — one closing paragraph: sources swept, date window,
   scan count (e.g. "GitHub search + trending, HN, HF · window: last 45 days ·
   92 repos scanned, 11 reported").
 
