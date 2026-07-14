@@ -61,9 +61,18 @@ the calls or use `gh api`. Keep the whole sweep to a reasonable budget
   fine — a project can headline both). Quality over volume.
 
 ## 4. Render the HTML report
-Write the report as an HTML file at `scans/<YYYY-MM-DD>-whats-new.html` —
-NOT markdown. No template or styling requirements: format it however you see
-fit, as a plain HTML document. Structure the content as:
+Write the report as a **self-contained, smartly styled HTML** file at
+`scans/<YYYY-MM-DD>-whats-new.html` (append `-2`, `-3`… if the file already
+exists — never overwrite an earlier same-day report). No fixed template — use
+your judgment — but the bar is: clean modern typography (system font stack,
+readable measure, inline CSS only), light *and* dark mode via
+`prefers-color-scheme`, and **metrics presented as real tables**, not inline
+code fragments: full-width tables in a rounded bordered wrapper with
+`overflow-x:auto`, uppercase muted column headers, numeric columns
+right-aligned with `font-variant-numeric:tabular-nums`, growth/velocity values
+highlighted (e.g. a subtle green badge), and row hover. Tables hold the short
+enumerable facts (project, what it is, stars, velocity, age); the *why* stays
+in prose beneath them. Structure the content as:
 
 - **TL;DR** — 3–5 sentences: the headline projects and any theme of the week
   (e.g. "agent memory is having a moment").

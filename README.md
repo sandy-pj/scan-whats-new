@@ -10,7 +10,7 @@ One run sweeps several independent angles:
 - **Hacker News** — "Show HN" launches as a traction signal independent of stars.
 - **Hugging Face trending** (optional) — notable open-weight model releases.
 
-The output is a single HTML file (`scans/<date>-whats-new.html` — no imposed template or styling) with a TL;DR, **Fast movers** (with numbers — stars, stars/day, deltas), **Interesting finds** (why each matters), a one-liner **Radar**, and a methods footer. Every claim of "fast-growing" gets a number; every project gets a link.
+The output is a single HTML file (`scans/<date>-whats-new.html` — self-contained, cleanly styled, metrics as tables; no fixed template) with a TL;DR, **Fast movers** (with numbers — stars, stars/day, deltas), **Interesting finds** (why each matters), a one-liner **Radar**, and a methods footer. Every claim of "fast-growing" gets a number; every project gets a link.
 
 ## Install
 
